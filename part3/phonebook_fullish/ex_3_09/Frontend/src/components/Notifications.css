@@ -1,0 +1,22 @@
+  .error {
+      color: red;
+      background: lightpink;
+      font-size: 14px;
+      border-style: inset;
+      border-radius: 25px;
+      padding: 10px;
+      margin-bottom: 10px;
+      width:200px;
+  }
+
+  .success {
+      color: green;
+      background: lightgreen;
+      font-size: 14px;
+      border-style :inset;
+      border-radius: 25px;
+      padding: 10px;
+      margin-bottom: 10px;
+      width:200px;
+
+  }

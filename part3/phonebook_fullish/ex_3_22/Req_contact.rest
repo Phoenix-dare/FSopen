@@ -1,0 +1,22 @@
+DELETE http://localhost:3001/api/persons/4
+
+###
+POST http://localhost:3001/api/persons/ HTTP/1.1
+content-type: application/json
+
+{ "name":"dome",
+    "number":"111-1311313"
+   }
+   
+###
+GET  http://localhost:3001/api/persons
+###
+GET  http://localhost:3001/api/persons/635f7e411af0782e1bc9a064
+
+###
+PUT http://localhost:3001/api/persons/6361f2b6f044af6cfd6754db
+content-type: application/json
+
+{ "name":"dome",
+    "number":"111-1313233"
+   }
