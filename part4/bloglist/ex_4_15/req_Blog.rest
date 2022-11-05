@@ -1,0 +1,41 @@
+###
+GET http://localhost:3003/api/blogs/
+###
+DELETE  http://localhost:3003/api/blogs/63621cea2950ac317ff24ef4
+
+
+###
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+
+{
+    "title":"JS Promise ,Async/Await",
+    "author":"Dr.Who",
+    "url":"loremipsumsome.com/",
+    "likes":656
+}
+
+
+###
+PUT  http://localhost:3003/api/blogs/63621cec2950ac317ff24ef6
+
+
+{
+    "title":"JS Promise ,Async/Await",
+    "author":"Dr.Who",
+    "url":"loremipsumsome.com/",
+    "likes":656
+}
+
+
+
+###
+POST http://localhost:3003/api/users
+
+Content-Type: application/json
+
+{
+        "username": "Harry Potter",
+       "name": "Harry Potter",
+        "password": "patronum086",
+      }
