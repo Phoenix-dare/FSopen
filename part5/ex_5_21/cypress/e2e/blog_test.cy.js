@@ -84,6 +84,9 @@ describe('Blog app', function () {
         cy.get('@submitbutton').click()
         cy.get('.blog-container').should('contain','delete')
         cy.get('.deletebutton').click()
+        cy.visit('http://localhost:3000')
+        cy.get('html').should('not.contain','Testing with cypress')
+    
       })
      
     })

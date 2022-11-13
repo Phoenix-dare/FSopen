@@ -1,0 +1,43 @@
+const express = require('express')
+const morgan = require('morgan')
+const cors = require('cors')
+const mongoose = require('mongoose')
+const config = require('./utils/config')
+const logger = require('./utils/logger')
+const middleware = require('./utils/middleware')
+const blogsRouter = require('./controllers/blogControl')
+const usersRouter = require('./controllers/userControl')
+const loginRouter = require('./controllers/loginControl')
+const commentsRouter = require('./controllers/commentControl')
+require('express-async-errors')
+
+const app = express()
+app.use(morgan('tiny'))
+
+mongoose
+    .connect(config.MONGO_URI)
+    .then(() => logger.info('Connected to database'))
+    .catch((error) => logger.error('Error connecting :', error.message))
+
+app.use(cors())
+app.use(express.json())
+app.use(middleware.requestLogger)
+app.use(middleware.tokenExtractor)
+app.use(middleware.userExtractor)
+
+app.use('/api/blogs', middleware.userExtractor, blogsRouter)
+app.use('/api/users', usersRouter)
+app.use('/api/login', loginRouter)
+app.use('/api/blogs',commentsRouter)
+
+
+// eslint-disable-next-line no-undef
+if (process.env.NODE_ENV === 'test') {
+    const testingRouter = require('./controllers/testing')
+    app.use('/api/testing', testingRouter)
+}
+
+app.use(middleware.unknownEndpoint)
+app.use(middleware.errorHandler)
+
+module.exports = app

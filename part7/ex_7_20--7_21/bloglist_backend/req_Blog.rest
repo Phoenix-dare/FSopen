@@ -1,0 +1,69 @@
+###
+GET http://localhost:3003/api/blogs/
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkhhcnJ5IFBvdHRlciIsImlkIjoiNjM2NTJmNjMwZjVkZjhjMzZkODllNWU0IiwiaWF0IjoxNjY3NjE4MTY2fQ.aqdmbpDM8k80oWt8fWhFE8JylB2ym-5XXHmEAUOnpPo
+
+###
+GET http://localhost:3003/api/users/
+###
+DELETE  http://localhost:3003/api/blogs/6365de98e9c6c1a8f3120606
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkhhcnJ5IFBvdHRlciIsImlkIjoiNjM2NTJmNjMwZjVkZjhjMzZkODllNWU0IiwiaWF0IjoxNjY3NjE4MTY2fQ.aqdmbpDM8k80oWt8fWhFE8JylB2ym-5XXHmEAUOnpPo
+
+
+
+###
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikhlcm1pb25lIiwiaWQiOiI2MzZlNjY0ZmIwODM4ZjU3MGJiNWU0NzQiLCJpYXQiOjE2NjgxNzk2MjJ9._-MUesTSCziDmhPsCC4OjpPZlaCBeq3zq6gQatsr7yM
+
+{
+        "title":"Event loop",
+        "author":"Harry Potter",
+        "url":"somewher.com",
+        "user":"63652f630f5df8c36d89e5e4",
+        "comments":"636e887cf466922e9da43087"
+}
+
+###
+GET http://localhost:3003/api/blogs/636e66c5b0838f570bb5e47b/comments
+###
+POST http://localhost:3003/api/blogs/636e66c5b0838f570bb5e47b/comments
+Content-Type: application/json
+
+{ "comment" : "hola",
+  "blog":"636e66c5b0838f570bb5e47b"
+        }
+###
+PUT  http://localhost:3003/api/blogs/63621cec2950ac317ff24ef6
+
+
+{
+    "title":"JS Promise ,Async/Await",
+    "author":"Dr.Who",
+    "url":"loremipsumsome.com/",
+    "likes":656
+}
+
+
+
+###
+POST http://localhost:3003/api/users
+Content-Type: application/json
+
+
+        {"username": "harry",
+        "name": "harry",
+        "password": "1234"
+        }
+
+
+###
+POST http://localhost:3003/api/login
+Content-Type: application/json
+
+
+        {
+        "username": "Hermione",
+        "password": "leviosa"
+        }
+
+      

@@ -25,6 +25,7 @@ const App = () => {
     const checkUser = window.localStorage.getItem('evanesco')
     if (checkUser) {
       const user = JSON.parse(checkUser)
+      blogService.setToken(user.token) 
       setUser(user)
     }
   }, [])
@@ -54,7 +55,6 @@ const App = () => {
       const user = await loginService.login({
         username, password,
       })
-      blogService.setToken(user.token)
       window.localStorage.setItem(
         'evanesco', JSON.stringify(user)
       )
